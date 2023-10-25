@@ -58,7 +58,7 @@ const UserProfileHeader = ({user, isSubscribed, setIsSubscribed}) => {
               
               <Pressable onPress={() => setIsSubscribed(!isSubscribed)} 
                 style={[
-                  styles.button,
+                  styles.buttonUser,
                   {backgroundColor: isSubscribed? 'white' : 'royalblue'}
                 ]}>
                     <Text 
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     color: 'royalblue',
     fontWeight: '600',
   },
-  button: {
+  buttonUser: {
     flexDirection: 'row',
     borderWidth:  1,
     borderColor: 'gray',
