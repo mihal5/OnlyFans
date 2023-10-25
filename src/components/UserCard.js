@@ -1,15 +1,20 @@
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, Image, ImageBackground, Pressable } from "react-native";
+import { Link } from "expo-router";
 
 export default function UserCard({ user }) {
   return (
-    <ImageBackground source={{uri: user.coverImage}} style={styles.userCard}>
-        <View style={styles.overlay} />
-          <Image src={user.avatar} style={styles.userImage} />
-            <View>
-              <Text style={{color: 'white', fontSize: 22, fontWeight: "500", marginBottom: 5}}> {user.name}</Text>
-                <Text style={{color: 'white',}}> @{user.handle} </Text>
-            </View>
-    </ImageBackground>
+    <Link href={`/user/${user.id}`} asChild>
+        <Pressable>
+            <ImageBackground source={{uri: user.coverImage}} style={styles.userCard}>
+                <View style={styles.overlay} />
+                    <Image src={user.avatar} style={styles.userImage} />
+                        <View>
+                            <Text style={{color: 'white', fontSize: 22, fontWeight: "500", marginBottom: 5}}> {user.name}</Text>
+                            <Text style={{color: 'white',}}> @{user.handle} </Text>  
+                        </View>
+            </ImageBackground>
+        </Pressable>
+    </Link>
 
   )
 }
@@ -18,7 +23,7 @@ export default function UserCard({ user }) {
 const styles = StyleSheet.create({
   userCard: {
     padding: 10,
-    backgroundColor: 'gray',  
+    backgroundColor: 'gainsboro',  
     flexDirection: "row",
     alignItems: "flex-end",
 
